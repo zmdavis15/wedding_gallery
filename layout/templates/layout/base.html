@@ -1,0 +1,26 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- css files and fonts -->
+    {% block stylesheet %}{% endblock %}
+  </head>
+  <body>
+    <header>
+      <!-- top nav bar here -->
+    </header>
+    <!-- main content here -->
+    {% block content %}
+      {% block breadcrumbs %}
+      {% endblock %}
+    {% endblock %}
+    <footer>
+      <!-- bottom nav and JS files -->
+      {% block javascript %}{% endblock %}
+    </footer>
+  </body>
+</html>
