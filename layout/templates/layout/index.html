@@ -1,7 +1,21 @@
 {% extends 'layout/base.html' %}
 
-{% block title %}My Home Page{% endblock %}
+{% block title %}Live Wedding - Ben and Lindsay{% endblock %}
 
 {% block content %}
-hello world!
+<div class="container">
+  <div class="row">
+
+    {% for obj in object_list %}
+    <div class="col-md-6 col-sm-12">
+      <img src="{{ obj.img.url }}" class="img-fluid" alt="...">
+    </div>
+    {% empty %}
+    <div class="col-md-12">
+      No Images
+    </div>
+    {% endfor %}
+
+  </div>
+</div>
 {% endblock  %}
