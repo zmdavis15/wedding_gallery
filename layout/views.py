@@ -6,6 +6,7 @@ from photos.models import Photo
 class IndexView(ListView):
     template_name = "layout/index.html"
     model = Photo
+    ordering = ['-date']
     # paginate_by = 25  # if pagination is desired
 
     def get_context_data(self, **kwargs):

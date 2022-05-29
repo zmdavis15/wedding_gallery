@@ -2,3 +2,7 @@
 .asteriskField {
   color: red;
 }
+
+#main_content {
+    height: 100vh;
+}
