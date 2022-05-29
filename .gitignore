@@ -6,3 +6,4 @@ db.sqlite3
 /config/settings/local.py
 /config/settings/.env
 *.py[cod]
+media
