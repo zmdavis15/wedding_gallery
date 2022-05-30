@@ -7,11 +7,11 @@
   <div class="row mb-2">
 
     {% for obj in object_list %}
-    <div class="col-md-6 col-xs-12 d-flex align-items-center justify-content-center">
-        <figure class="figure">
-          <img src="{{ obj.img.url }}" class="img-fluid border rounded-3" alt="" style="max-height:500px">
-          <figcaption class="figure-caption text-center">{{ obj.caption }}</figcaption>
-        </figure>
+    <div class="col-md-4 col-xs-12 d-flex align-items-center justify-content-center">
+      <figure class="figure">
+        <img src="{{ obj.img.url }}" class="img-fluid border rounded-3" alt="" style="max-height:500px">
+        <figcaption class="figure-caption text-center">{{ obj.caption }}</figcaption>
+      </figure>
     </div>
     {% empty %}
     <div class="col">
