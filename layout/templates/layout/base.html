@@ -19,15 +19,7 @@
   <body>
     <header>
       <!-- top nav bar here -->
-      <nav class="navbar navbar-light bg-dark mb-3">
-        <div class="container">
-          <a class="navbar-brand text-white">Live Wedding Gallery</a>
-          <div class="d-flex">
-            <button id="upload_photo_btn" class="btn btn-outline-light" type="button" name="button">Upload</button>
-          </div>
-        </div>
-      </nav>
-    </header>
+
 
     {% for message in messages %}
     <div class="alert alert-info alert-dismissible fade show" role="alert">
@@ -40,11 +32,7 @@
     {% block content %}
     {% endblock %}
     <!-- bottom nav and JS files -->
-    <nav class="navbar navbar-light bg-dark footer">
-      <div class="container d-flex justify-content-center">
-        <a class="text-white" href="{% url 'admin:index' %}">Admin</a>
-      </div>
-    </nav>
+
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
