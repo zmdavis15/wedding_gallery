@@ -9,6 +9,16 @@ class IndexView(ListView):
     ordering = ['-date']
     paginate_by = 10  # if pagination is desired
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return context
+    # def get(self, request, *args, **kwargs):
+    #     print(request)
+    #     form = self.form_class(initial=self.initial)
+    #     return render(request, self.template_name, {'form': form})
+
+    # def get_context_data(self, **kwargs):
+    #     context = super(IndexView, self).get_context_data(**kwargs)
+    #     if self.request.GET.get('filter'):
+    #             filter = self.request.GET.get('filter')
+    #             print(self.request)
+    #             # filter_set = filter_set.filter(type=type)
+    #
+    #     return context
