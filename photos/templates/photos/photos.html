@@ -1,7 +1,7 @@
 {% load crispy_forms_tags %}
 {% load static %}
 
-<form enctype="multipart/form-data" method="post" action="">
+<form id="upload_img_form" enctype="multipart/form-data" method="post" action="">
 {% csrf_token %}
   <div class="modal-header">
     <h5 class="modal-title">Upload a Photo</h5>
@@ -10,8 +10,17 @@
   <div class="modal-body">
     {{ form|crispy }}
   </div>
+  <div class="progress">
+    <div class="bar"></div >
+    <div class="percent">0%</div >
+  </div>
+  <div id="status"></div>
   <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
     <button type="submit" class="btn btn-primary">Submit</button>
   </div>
 </form>
+
+{% block javascript %}
+<script src="{% static 'js/photos.js' %}"></script>
+{% endblock %}
