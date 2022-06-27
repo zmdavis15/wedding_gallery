@@ -10,12 +10,12 @@
   <div class="modal-body">
     {{ form|crispy }}
   </div>
-  <div class="progress">
-    <div class="bar"></div >
-    <div class="percent">0%</div >
-  </div>
-  <div id="status"></div>
   <div class="modal-footer">
+    <div id="status" class="" style="display:none;">
+      <div class="alert alert-primary py-1 mb-0" role="alert">
+        Uploading Image...
+      </div>
+    </div>
     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
     <button type="submit" class="btn btn-primary">Submit</button>
   </div>
