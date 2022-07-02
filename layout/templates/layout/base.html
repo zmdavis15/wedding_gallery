@@ -35,14 +35,14 @@
             </div>
           </a>
           <div class="d-flex">
-            <button id="upload_photo_btn" class="btn btn-outline-light" type="button" name="button">Upload</button>
+            <button id="upload_photo_btn" class="btn btn-outline-light btn-sm" type="button" name="button">Upload</button>
           </div>
         </div>
       </nav>
     </header>
 
     {% for message in messages %}
-    <div class="alert alert-info alert-dismissible fade show" role="alert">
+    <div class="alert alert-secondary alert-dismissible fade show" role="alert">
       {{ message }}
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
@@ -54,7 +54,7 @@
     <!-- bottom nav and JS files -->
     <nav class="navbar navbar-light bg-dark footer">
       <div class="container-fluid d-flex justify-content-center">
-        <a class="text-white fst-italic href="{% url 'admin:index' %}">Admin</a>
+        <a class="text-white fst-italic" href="{% url 'admin:index' %}">Admin</a>
       </div>
     </nav>
 

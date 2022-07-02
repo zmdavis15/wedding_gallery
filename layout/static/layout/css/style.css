@@ -8,7 +8,7 @@
 html, body {
   height: 100%;
 }
-#main_content {
+body {
   background: url("/static/photos/img/background_flowers.jpg");
   /* background-attachment: fixed; */
   /* background-repeat: no-repeat; */
