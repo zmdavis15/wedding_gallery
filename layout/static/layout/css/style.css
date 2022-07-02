@@ -30,7 +30,9 @@ html, body {
   font-family: 'Great Vibes', cursive;
 }
 
-
+.bride-groom img {
+  height: calc(1.325rem + .9vw) !important;
+}
 /* bootstrap overrides */
 .page-item.active .page-link {
 	background-color: #212529;
