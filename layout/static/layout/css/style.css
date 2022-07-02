@@ -10,10 +10,11 @@ html, body {
 }
 #main_content {
   background: url("/static/photos/img/background_flowers.jpg");
-  background-attachment: fixed;
-  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  /* background-repeat: no-repeat; */
   /* background-position: 50% 0; */
   background-size: cover;
+  width: 100%;
 }
 #main_content {
   min-height: calc(100% - 120px);
