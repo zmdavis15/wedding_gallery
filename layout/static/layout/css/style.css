@@ -2,6 +2,9 @@
 .asteriskField {
   color: red;
 }
+
+
+/* page appearance adjustment */
 html, body {
   height: 100%;
 }
@@ -13,4 +16,14 @@ html, body {
 }
 .footer {
   height: 60px;
+}
+/* fonts */
+.wedding-font {
+  font-family: 'Great Vibes', cursive;
+}
+
+
+/* bootstrap overrides */
+.page-item.active .page-link {
+	background-color: #212529;
 }
