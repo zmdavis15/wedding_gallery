@@ -9,6 +9,13 @@ html, body {
   height: 100%;
 }
 #main_content {
+  background: url("/static/img/background_flowers.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  /* background-position: 50% 0; */
+  background-size: cover;
+}
+#main_content {
   min-height: calc(100% - 120px);
 }
 .header {
