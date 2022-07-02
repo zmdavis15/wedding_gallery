@@ -14,11 +14,14 @@
       </select>
     </div> -->
     <form method="get" action="{% url 'layout:index' %}" class="mb-2">
-      <div class="d-flex justify-content-end mb-3">
-        <select onchange="this.form.submit()" class="form-select w-50 bg-light" name="orderby">
-          <option value="Descending" {% if sort_order == 'Descending' %} selected {% endif %}>Descending</option>
-          <option value="Ascending" {% if sort_order == 'Ascending' %} selected {% endif %}>Ascending</option>
-        </select>
+      <div class="row d-flex justify-content-end mb-3">
+        <div class="col-md-4 col-xs-12 d-flex justify-content-end ">
+          <select onchange="this.form.submit()" class="form-select bg-light w-50" name="orderby">
+            <option value="Descending" {% if sort_order == 'Descending' %} selected {% endif %}>Descending</option>
+            <option value="Ascending" {% if sort_order == 'Ascending' %} selected {% endif %}>Ascending</option>
+          </select>
+        </div>
+
       </div>
     </form>
     <!-- photos -->
