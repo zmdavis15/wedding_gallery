@@ -15,7 +15,7 @@
     </div> -->
     <form method="get" action="{% url 'layout:index' %}" class="mb-2">
       <div class="d-flex justify-content-end mb-3">
-        <select onchange="this.form.submit()" class="form-select w-25" name="orderby">
+        <select onchange="this.form.submit()" class="form-select w-50 bg-light" name="orderby">
           <option value="Descending" {% if sort_order == 'Descending' %} selected {% endif %}>Descending</option>
           <option value="Ascending" {% if sort_order == 'Ascending' %} selected {% endif %}>Ascending</option>
         </select>
@@ -26,7 +26,7 @@
     <div class="col-md-4 col-xs-12 d-flex align-items-center justify-content-centerd">
       <figure class="figure">
         <img src="{{ obj.img.url }}" class="img-fluid border rounded-3 border-1 border-dark" alt="" style="">
-        <figcaption class="figure-caption text-center bg-light text-dark rounded-3">{{ obj.caption }}</figcaption>
+        <figcaption class="figure-caption text-center bg-light text-dark rounded-1">{{ obj.caption }}</figcaption>
       </figure>
     </div>
     {% empty %}
