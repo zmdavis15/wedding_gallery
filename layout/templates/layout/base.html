@@ -20,9 +20,12 @@
   <body>
     <header>
       <!-- top nav bar here -->
-      <nav class="navbar navbar-light bg-dark header">
+      <nav class="navbar navbar-light bg-light header">
         <div class="container-fluid">
-          <a class="navbar-brand text-white" href="{% url 'layout:index' %}">Live Wedding Gallery</a>
+          <a class="navbar-brand text-dark" href="{% url 'layout:index' %}">
+            <img src="{% static 'svg/bride_groom.svg' %}" alt="" style="height: 40px;">
+            Live Wedding Gallery
+          </a>
           <div class="d-flex">
             <button id="upload_photo_btn" class="btn btn-outline-light" type="button" name="button">Upload</button>
           </div>
