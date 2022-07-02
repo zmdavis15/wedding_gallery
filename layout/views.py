@@ -9,16 +9,19 @@ class IndexView(ListView):
     ordering = ['-date']
     paginate_by = 10  # if pagination is desired
 
-    # def get(self, request, *args, **kwargs):
-    #     print(request)
-    #     form = self.form_class(initial=self.initial)
-    #     return render(request, self.template_name, {'form': form})
+    def get_queryset(self):
+        order = self.request.GET.get('orderby')
+        if order == 'Descending':
+            sort_order = '-date'
+        elif order == 'Ascending':
+            sort_order = 'date'
+        else: #default
+            sort_order = '-date'
+        new_context = Photo.objects.order_by(sort_order)
+        return new_context
 
-    # def get_context_data(self, **kwargs):
-    #     context = super(IndexView, self).get_context_data(**kwargs)
-    #     if self.request.GET.get('filter'):
-    #             filter = self.request.GET.get('filter')
-    #             print(self.request)
-    #             # filter_set = filter_set.filter(type=type)
-    #
-    #     return context
+    def get_context_data(self, **kwargs):
+        context = super(IndexView, self).get_context_data(**kwargs)
+        sort_order = self.request.GET.get('orderby')
+        context['sort_order'] = sort_order
+        return context

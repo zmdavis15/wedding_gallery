@@ -4,22 +4,29 @@
 {% block title %}Live Wedding - Ben and Lindsay{% endblock %}
 
 {% block content %}
-<div id="main_content" class="container-fluid pt-3">
+<div id="main_content" class="container-fluid pt-3" data-form-url='{% url "photos:photo_create" %}'>
   <div class="row">
-    <!-- filter options -->
+    <!-- order options -->
     <!-- <div class="">
       <select id="filter_dropdown" class="form-select">
-        <option selected>Open this select menu</option>
-        <option value="ascending">ascending</option>
-        <option value="descending">descending</option>
+        <option selected value="-date">descending</option>
+        <option value="date">ascending</option>
       </select>
     </div> -->
+    <form method="get" action="{% url 'layout:index' %}" class="mb-2">
+      <div class="d-flex justify-content-end mb-3">
+        <select onchange="this.form.submit()" class="form-select w-25" name="orderby">
+          <option value="Descending" {% if sort_order == 'Descending' %} selected {% endif %}>Descending</option>
+          <option value="Ascending" {% if sort_order == 'Ascending' %} selected {% endif %}>Ascending</option>
+        </select>
+      </div>
+    </form>
     <!-- photos -->
     {% for obj in object_list %}
-    <div class="col-md-4 col-xs-12 d-flex align-items-center justify-content-center">
+    <div class="col-md-4 col-xs-12 d-flex align-items-center justify-content-centerd">
       <figure class="figure">
-        <img src="{{ obj.img.url }}" class="img-fluid border rounded-3" alt="" style="">
-        <figcaption class="figure-caption text-center">{{ obj.caption }}</figcaption>
+        <img src="{{ obj.img.url }}" class="img-fluid border rounded-3 border-1 border-dark" alt="" style="">
+        <figcaption class="figure-caption text-center bg-light text-dark rounded-3">{{ obj.caption }}</figcaption>
       </figure>
     </div>
     {% empty %}
@@ -36,17 +43,17 @@
             <!-- <li class="page-item"><a class="page-link" href="?page=1">first</a></li> -->
             {% if page_obj.has_previous %}
             <li class="page-item">
-              <a class="page-link" href="?page={{ page_obj.previous_page_number }}">previous</a>
+              <a class="page-link" href="?page={{ page_obj.previous_page_number }}&orderby={{ sort_order }}">previous</a>
             </li>
             {% endif %}
 
             {% for page in page_obj.paginator.page_range %}
               {% if page == page_obj.number %}
                 <li class="page-item active" aria-current="page">
-                  <a class="page-link" href="?page={{ page }}">{{ page }}</a>
+                  <a class="page-link" href="?page={{ page }}&orderby={{ sort_order }}">{{ page }}</a>
                 </li>
               {% else %}
-                <li class="page-item"><a class="page-link" href="?page={{ page }}">{{ page }}</a></li>
+                <li class="page-item"><a class="page-link" href="?page={{ page }}&orderby={{ sort_order }}">{{ page }}</a></li>
               {% endif %}
             {% endfor %}
             <!-- <span class="current">
@@ -55,7 +62,7 @@
 
             {% if page_obj.has_next %}
             <li class="page-item">
-              <a class="page-link" href="?page={{ page_obj.next_page_number }}">next</a>
+              <a class="page-link" href="?page={{ page_obj.next_page_number }}&orderby={{ sort_order }}">next</a>
             </li>
             {% endif %}
             <!-- last page -->
@@ -76,30 +83,4 @@
 
 {% block javascript %}
 <script src="{% static 'js/main.js' %}"></script>
-<script type="text/javascript">
-  function filter_photos(filter_selection) {
-    $.ajax({
-      url : "{% url 'layout:index' %}",
-      type : 'GET',
-      data : {
-          'filter':filter_selection
-      },
-      // dataType:'json',
-      success : function(data) {
-          // alert('Data: '+data);
-      },
-    });
-  }
-$(document).ready(function() {
-
-  $("#filter_dropdown").change(function () {
-     filter_photos($('#filter_dropdown').val())
-  });
-
-  $("#upload_photo_btn").modalForm({
-      formURL: "{% url 'photos:photo_create' %}"
-  });
-
-});
-</script>
 {% endblock %}
