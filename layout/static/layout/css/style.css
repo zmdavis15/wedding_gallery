@@ -9,7 +9,7 @@ html, body {
   height: 100%;
 }
 #main_content {
-  background: url("/static/img/background_flowers.jpg");
+  background: url("/static/photos/img/background_flowers.jpg");
   background-attachment: fixed;
   background-repeat: no-repeat;
   /* background-position: 50% 0; */
