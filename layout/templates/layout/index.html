@@ -1,4 +1,5 @@
 {% extends 'layout/base.html' %}
+{% load static %}
 
 {% block title %}Live Wedding - Ben and Lindsay{% endblock %}
 
@@ -74,6 +75,7 @@
 
 
 {% block javascript %}
+<script src="{% static 'js/main.js' %}"></script>
 <script type="text/javascript">
   function filter_photos(filter_selection) {
     $.ajax({
