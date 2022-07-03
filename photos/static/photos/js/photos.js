@@ -4,9 +4,10 @@ $(document).ready(function() {
     e.preventDefault();
     // show uploading status
     $('#status').show();
-    $(this).closest("form")[0].submit();
     // disable submit button on press
     $('#submit_button').attr("disabled", true);
+    $(this).closest("form")[0].submit();
+
  });
 
 });

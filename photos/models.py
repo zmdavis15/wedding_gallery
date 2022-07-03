@@ -32,7 +32,6 @@ class Photo(models.Model):
 
     #calling image compression function before saving the data
     def save(self, *args, **kwargs):
-        print(self.img)
         new_image =  compress(self.img)
         self.img = new_image
         super().save(*args, **kwargs)
