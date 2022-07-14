@@ -9,6 +9,8 @@ from django.core.files import File #to store files
 #image compression method
 def compress(image):
     im = Image.open(image)
+    if im.mode != 'RGB':
+        im = im.convert('RGB')
     im_io = BytesIO()
     im.save(im_io, 'JPEG', quality=60)
     new_image = File(im_io, name=image.name)
