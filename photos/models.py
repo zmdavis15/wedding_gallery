@@ -7,14 +7,14 @@ from PIL import Image #Imported to compress images
 from django.core.files import File #to store files
 
 #image compression method
-def compress(image):
-    im = Image.open(image)
-    if im.mode != 'RGB':
-        im = im.convert('RGB')
-    im_io = BytesIO()
-    im.save(im_io, 'JPEG', quality=60)
-    new_image = File(im_io, name=image.name)
-    return new_image
+# def compress(image):
+#     im = Image.open(image)
+#     if im.mode != 'RGB':
+#         im = im.convert('RGB')
+#     im_io = BytesIO()
+#     im.save(im_io, 'JPEG', quality=60)
+#     new_image = File(im_io, name=image.name)
+#     return new_image
 
 # rename photo upon upload
 def photo_rename(instance, filename):
@@ -32,8 +32,8 @@ class Photo(models.Model):
     def __str__(self):
         return str(self.date)
 
-    #calling image compression function before saving the data
-    def save(self, *args, **kwargs):
-        new_image =  compress(self.img)
-        self.img = new_image
-        super().save(*args, **kwargs)
+    # #calling image compression function before saving the data
+    # def save(self, *args, **kwargs):
+    #     new_image =  compress(self.img)
+    #     self.img = new_image
+    #     super().save(*args, **kwargs)
