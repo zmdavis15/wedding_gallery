@@ -7,7 +7,7 @@ class IndexView(ListView):
     template_name = "layout/index.html"
     model = Photo
     ordering = ['-date']
-    paginate_by = 12  # if pagination is desired
+    paginate_by = 9  # if pagination is desired
 
     def get_queryset(self):
         order = self.request.GET.get('orderby')
