@@ -46,27 +46,30 @@
             <!-- <li class="page-item"><a class="page-link" href="?page=1">first</a></li> -->
             {% if page_obj.has_previous %}
             <li class="page-item">
+              <a class="page-link" href="?page=1&orderby={{ sort_order }}">&laquo; first</a>
+            </li>
+            <li class="page-item">
               <a class="page-link" href="?page={{ page_obj.previous_page_number }}&orderby={{ sort_order }}">previous</a>
             </li>
             {% endif %}
 
             {% for page in page_obj.paginator.page_range %}
-              {% if page == page_obj.number %}
+              {% if page_obj.number == page %}
                 <li class="page-item active" aria-current="page">
-                  <a class="page-link" href="?page={{ page }}&orderby={{ sort_order }}">{{ page }}</a>
+                  <span class="page-link" href="?page={{ page }}&orderby={{ sort_order }}">{{ page }}</span>
                 </li>
-              {% else %}
+              {% elif page > page_obj.number|add:'-3' and page < page_obj.number|add:'3' %}
                 <li class="page-item"><a class="page-link" href="?page={{ page }}&orderby={{ sort_order }}">{{ page }}</a></li>
               {% endif %}
             {% endfor %}
-            <!-- <span class="current">
-                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-            </span> -->
 
             {% if page_obj.has_next %}
-            <li class="page-item">
-              <a class="page-link" href="?page={{ page_obj.next_page_number }}&orderby={{ sort_order }}">next</a>
-            </li>
+              <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.next_page_number }}&orderby={{ sort_order }}">next</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}&orderby={{ sort_order }}">last &raquo;</a>
+              </li>
             {% endif %}
             <!-- last page -->
             <!-- <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">last</a></li> -->
